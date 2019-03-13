@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>ToDo List</title>
+    <meta name="description" content="Calories application" />
+    <meta name="author" content="Bartlomiej Zdybel" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+
+    <link rel="icon" href="icon_code.jpg" />
+  </head>
+
+  <body>
+      <div class="container">
+      <form class="add-task-form">
+          <label class="add-task-form__title">task list</label>
+
+          <label class="add-task-form__input--title" for="task">What must you do?</label>
+          <input 
+            id="task"
+            class="add-task-form__input"
+            placeholder="Task name eg. Go to the cinema"
+          />
+        
+
+          <label class="add-task-form__input--title" for="date">Enter the deadline</label>
+          <input 
+            id="date"
+            type="date"
+            class="add-task-form__input"
+            value="2019-03-12"
+          />
+        
+          <button class ="add-task-form__button" type="submit">Add to list</button>
+          <div class="divide-line"></div>
+        <ul class="task-list">
+          <li class="task-list__item">XD</li>
+          <li class="task-list__item">XD</li>
+          <li class="task-list__item">XD</li>
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>
