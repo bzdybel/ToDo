@@ -4,9 +4,12 @@
   --white: white;
   --coconut-milk: #F0EDE5;
   --warm-sand: #C0AB8E;
-  --black:#000000;
+  --black:#000000; 
+  --soft-black:#666666;
+  --grey:#e4e4e4;
   --soft-grey: #ccc;
   --light-warm-sand:#D1BA9F;
+  --green: 	#339733;
 }
 * {
   box-sizing: border-box;
@@ -86,7 +89,37 @@ body {
     padding:0;
     list-style-type: none;
     margin:1rem;
+    overflow-y: scroll;
+    max-height: 50%;
 }
+
 .task-list__item{
-    margin:1rem 0;
+    display: flex;
+    margin:.7rem 1rem ;
+    border-radius: 10px;
+    background: var(--grey);
+    box-shadow: 1px 1px 1px 1px var(--soft-black);
+}
+.task-list-item__button{
+    background: var(--grey);
+    border: 2px solid var(--grey);
+    font-size: 24px;
+    border-radius: 10px;
+
+}
+.task-list-item__button:hover{
+    cursor: pointer;
+    opacity:0.5;
+}
+
+.task-list-item__button--is-done{
+    justify-self: flex-start;
+    color: var(--green);
+}
+
+.task-list-item__button--delete{
+    margin-left:auto; 
+}
+.task-list-item__content{
+    align-self: center;
 }
