@@ -17,27 +17,28 @@
 
   <body>
       <div class="container">
-      <form class="add-task-form">
-          <label class="add-task-form__title">task list</label>
+      <form class="task-form task-form__add">
+          <label class="task-form__title">task list</label>
 
-          <label class="add-task-form__input--title" for="task">What must you do?</label>
+          <label class="task-form__input--title" for="task">What must you do?</label>
           <input 
             id="task"
-            class="add-task-form__input"
+            class="task-form__input"
             placeholder="Task name eg. Go to the cinema"
           />
         
 
-          <label class="add-task-form__input--title" for="date">Enter the deadline</label>
+          <label class="task-form__input--title" for="date">Enter the deadline</label>
           <input 
             id="date"
             type="date"
-            class="add-task-form__input"
+            class="task-form__input"
             value="2019-03-12"
           />
         
-          <button class ="add-task-form__button" type="submit">Add to list</button>
+          <button class ="task-form__button" type="submit">Add to list</button>
           <div class="divide-line"></div>
+
         <ul class="task-list">
                             <li class="task-list__item">
                               <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
@@ -84,20 +85,6 @@
                         Meet with friends
                     </label>
                     <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
-                  </li> <li class="task-list__item">
-                    <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
-                    
-                  <label class="task-list-item__content">
-                      Meet with friends
-                  </label>
-                  <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
-                  </li> <li class="task-list__item">
-                    <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
-                    
-                  <label class="task-list-item__content">
-                      Meet with friends
-                  </label>
-                  <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
                   </li> 
                   <li class="task-list__item">
                     <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
@@ -106,9 +93,70 @@
                       Meet with friends
                   </label>
                   <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
-                  </li>       
+                </li> 
+                <li class="task-list__item">
+                  <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
+                  
+                <label class="task-list-item__content">
+                    Meet with friends
+                </label>
+                <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
+              </li> 
+              <li class="task-list__item">
+                <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
+                
+              <label class="task-list-item__content">
+                  Meet with friends
+              </label>
+              <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
+            </li>  
+            <li class="task-list__item">
+              <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
+              
+            <label class="task-list-item__content">
+                Meet with friends
+            </label>
+            <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
+          </li> 
+          <li class="task-list__item">
+            <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
+            
+          <label class="task-list-item__content">
+              Meet with friends
+          </label>
+          <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
+        </li> 
+        <li class="task-list__item">
+          <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
+          
+        <label class="task-list-item__content">
+            Meet with friends
+        </label>
+        <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
+      </li> 
+      <li class="task-list__item">
+        <button class="task-list-item__button task-list-item__button--is-done">&check;</button> 
+        
+      <label class="task-list-item__content">
+          Meet with friends
+      </label>
+      <button class="task-list-item__button task-list-item__button--delete">&#10060</button>
+    </li> 
+    
         </ul>
       </form>
+
+      <div class="task-form__wrapper">
+      <form class="task-form task-form__done">
+        <label class="task-form__title">Done</label>
+
+      </form>
+
+      <form class="task-form task-form__deleted">
+        <label class="task-form__title">Deleted</label>
+
+      </form>
+    </div>
     </div>
   </body>
 </html>

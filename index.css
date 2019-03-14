@@ -29,17 +29,29 @@ body {
   height: 100vh;
   width: 100vw;
 }
-.add-task-form{
+.-webkit-scrollbar{
+    width: 20px;
+}
+.task-form{
     display: flex;
     flex-direction: column;
     background: var(--coconut-milk);
-    margin: 5% 0;
+    margin: 5%;
     border-radius: 3%;
     min-width: 30%;
     box-shadow: 1.5px 1.5px 1.5px 1.5px var(--soft-grey);
+}
+.task-form__wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 3.5% 0 ;
+    border-radius: 3%;
+    min-width: 30%;
+}
+.task-form__add{
 
 }
-.add-task-form__title{
+.task-form__title{
     font-size: 32px;
     border-radius: 15px 15px 0 0;
     color: var(--coconut-milk);
@@ -49,18 +61,18 @@ body {
     text-align: center;
     text-transform: uppercase;
 }
-.add-task-form__input{
+.task-form__input{
     margin: 1rem 1rem 0.5rem 1rem;
     padding: .5rem; 
     background: transparent;
     border: none;
     border-bottom: 1px solid #000000;
 }
-.add-task-form__input--title{
+.task-form__input--title{
     font-size: 24px;
     margin: 1rem 1rem 0 1rem;
 }
-.add-task-form__button{
+.task-form__button{
     margin: 1rem 12rem 2rem 12rem;
     padding: 1rem;
     background: var(--warm-sand);
@@ -73,7 +85,7 @@ body {
     font-size: 14px;
 }
 
-.add-task-form__button:hover{
+.task-form__button:hover{
     cursor: pointer;
     background:var(--light-warm-sand);
     border: 2px solid var(--light-warm-sand);
@@ -81,15 +93,15 @@ body {
 }
 .divide-line{
     margin: 0 1rem;
-    border-bottom: 4px solid var(--warm-sand);
+    border-bottom: 4px solid var(--soft-black);
 
 }
 .task-list{
-    background: var(--warm-sand);
     padding:0;
     list-style-type: none;
     margin:1rem;
     overflow-y: scroll;
+    scroll-behavior: inherit;
     max-height: 50%;
 }
 
@@ -99,6 +111,12 @@ body {
     border-radius: 10px;
     background: var(--grey);
     box-shadow: 1px 1px 1px 1px var(--soft-black);
+}
+.task-list__item:first-child{
+    margin-top: 1px;
+}
+.task-list__item:last-child{
+    margin-bottom: 1px;
 }
 .task-list-item__button{
     background: var(--grey);
@@ -122,4 +140,13 @@ body {
 }
 .task-list-item__content{
     align-self: center;
+}
+
+.task-form__done{
+     height: 50%; 
+     margin-bottom: 2rem;
+}
+.task-form__deleted{
+    height: 50%;
+
 }
