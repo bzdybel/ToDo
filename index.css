@@ -15,6 +15,7 @@
 	--smoke: #f8f3f3;
 	--orange: #ff4500;
 }
+
 * {
 	box-sizing: border-box;
 }
@@ -33,9 +34,11 @@ body {
 	height: 100vh;
 	width: 100vw;
 }
+
 .-webkit-scrollbar {
 	width: 20px;
 }
+
 .task-list__container {
 	background: var(--coconut-milk);
 	margin: 5%;
@@ -61,6 +64,7 @@ body {
 	text-align: center;
 	text-transform: uppercase;
 }
+
 .task-form__input {
 	margin: 1rem 1rem 0.5rem 1rem;
 	padding: 0.5rem;
@@ -68,38 +72,40 @@ body {
 	border: none;
 	border-bottom: 1px solid var(--legal-black);
 }
+
 .task-form__label {
-	margin: 1rem 1rem 0.5rem 1rem;
+	margin: 0rem 1rem;
 	padding: 0.5rem;
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid var(--legal-black);
-}
-.task-form__label--title {
 	font-size: 16px;
-	margin: 0rem 1rem;
-	border-bottom: none;
 }
+
+
 .task-form__input-wrapper {
 	display: flex;
 	flex-direction: column;
 }
+
 .task-form__input--date {
 	margin-top: 0;
 	margin-right: 60%;
 	font-size: 12px;
 	color: var(--light-grey);
 }
+
 .task-form__input--task-content {
 	margin-top: 0;
 	font-size: 12px;
 }
+
 .task-form__button-wrapper {
 	display: flex;
 	justify-content: center;
 	margin: 0 1rem;
 	border-bottom: 4px solid var(--soft-black);
 }
+
 .task-form__button {
 	white-space: nowrap;
 	margin: 1rem 0 2rem 0;
@@ -136,18 +142,22 @@ body {
 	background: var(--grey);
 	box-shadow: 0.5px 0.5px 0.5px 0.5px var(--soft-black);
 }
+
 .task-list__item:first-child {
 	margin-top: 1px;
 }
+
 .task-list__item:last-child {
 	margin-bottom: 1px;
 }
+
 .task-list-item__button {
 	background: var(--grey);
 	border: 2px solid var(--grey);
 	font-size: 24px;
 	border-radius: 10px;
 }
+
 .task-list-item__button:hover {
 	cursor: pointer;
 	opacity: 0.5;
@@ -159,25 +169,18 @@ body {
 	color: var(--green);
 }
 
-/* .task-list-item__button--is-done-list:hover {
-	opacity: 1;
-	cursor: default;
-}? */
 .task-list-item__button--performed-activity-list:hover {
 	opacity: 1;
 	cursor: default;
 }
-.task-list-item__button--delete {
-	margin-left: 1rem;
-}
-.task-list-item__button--delete:hover {
-	margin-left: 1rem;
-}
+
 .task-list-item__content {
 	align-self: center;
 }
+
 .task-list-item__deadline {
 	margin-left: auto;
+	padding: 0 1rem;
 	align-self: center;
 	color: var(--orange);
 }
@@ -189,9 +192,11 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 }
+
 .task-list__wrapper {
 	height: 45%;
 }
+
 .task-list__title {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -206,6 +211,7 @@ body {
 	text-transform: uppercase;
 	box-shadow: 1.5px 1.5px 1.5px 1.5px var(--soft-grey);
 }
+
 .task-list__performed-activity-wrapper {
 	background: var(--coconut-milk);
 	max-height: 85%;
@@ -214,6 +220,7 @@ body {
 	box-shadow: 1.5px 1.5px 1.5px 1.5px var(--soft-grey);
 	border-radius: 0 0 15px 15px;
 }
+
 .task-list__performed-activity {
 	margin-top: 0;
 	max-height: 15rem;

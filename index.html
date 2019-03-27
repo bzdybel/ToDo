@@ -1,264 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
 
-		<title>ToDo List</title>
-		<meta name="description" content="ToDo application" />
-		<meta name="author" content="Bartlomiej Zdybel" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<link rel="stylesheet" type="text/css" href="./index.css" />
+<head>
+	<meta charset="utf-8" />
 
-		<link rel="icon" href="icon_code.jpg" />
-	</head>
+	<title>ToDo List</title>
+	<meta name="description" content="ToDo application" />
+	<meta name="author" content="Bartlomiej Zdybel" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="./index.css" />
 
-	<body>
-		<div class="container">
-			<div class="task-list__container">
-				<form class="task-form task-form__add">
-					<h1 class="task-form__title">task list</h1>
+	<link rel="icon" href="icon_code.jpg" />
+</head>
 
-					<div class="task-form__input-wrapper">
-						<label class="task-form__label task-form__label--title" for="task">What must you do?</label>
-						<input
-							id="task"
-							class="task-form__input task-form__input--task-content"
-							placeholder="eg. Go to the cinema"
-						/>
-					</div>
+<body>
+	<div class="container">
+		<div class="task-list__container">
+			<form class="task-form">
+				<h1 class="task-form__title">task list</h1>
 
-					<div class="task-form__input-wrapper">
-						<label class="task-form__label task-form__label--title" for="date">Enter the deadline</label>
-						<input
-							id="date"
-							type="date"
-							class="task-form__input task-form__input--date"
-							value="2019-03-12"
-						/>
-					</div>
-					<div class="task-form__button-wrapper">
-						<button class="task-form__button" type="submit">Add to list</button>
-					</div>
-				</form>
-
-				<ul class="task-list">
-					<li class="task-list__item">
-						<button class="task-list-item__button task-list-item__button--is-done" type="button">
-							&#10003;
-						</button>
-
-						<span class="task-list-item__content">
-							Go to the cinema
-						</span>
-
-						<time datetime="2019-04-20" class="task-list-item__deadline">
-							2019-04-20
-						</time>
-						<button class="task-list-item__button task-list-item__button--delete" type="button">
-							&#10060;
-						</button>
-					</li>
-					<li class="task-list__item">
-						<button class="task-list-item__button task-list-item__button--is-done" type="button">
-							&#10003;
-						</button>
-
-						<span class="task-list-item__content">
-							Do homework
-						</span>
-
-						<time datetime="2019-04-20" class="task-list-item__deadline">
-							2019-04-20
-						</time>
-						<button class="task-list-item__button task-list-item__button--delete" type="button">
-							&#10060;
-						</button>
-					</li>
-
-					<li class="task-list__item">
-						<button class="task-list-item__button task-list-item__button--is-done" type="button">
-							&#10003;
-						</button>
-						<span class="task-list-item__content">
-							Meet with friends
-						</span>
-						<time datetime="2019-04-20" class="task-list-item__deadline">
-							2019-04-20
-						</time>
-						<button
-							type="submit"
-							class="task-list-item__button task-list-item__button--delete"
-							type="button"
-						>
-							&#10060;
-						</button>
-					</li>
-				</ul>
-			</div>
-
-			<div class="task-lists__wrapper">
-				<div class="task-list__wrapper">
-					<h1 class="task-list__title">Done</h1>
-					<div class="task-list__performed-activity-wrapper">
-						<ul class="task-list task-list__performed-activity">
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10003;
-								</button>
-
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10003;
-								</button>
-
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10003;
-								</button>
-
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10003;
-								</button>
-
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10003;
-								</button>
-
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-						</ul>
-					</div>
+				<div class="task-form__input-wrapper">
+					<label class="task-form__label" for="task">What must you do?</label>
+					<input id="task" class="task-form__input task-form__input--task-content"
+						placeholder="eg. Go to the cinema" />
 				</div>
 
-				<div class="task-list__wrapper">
-					<h1 class="task-list__title">Deleted</h1>
-					<div class="task-list__performed-activity-wrapper">
-						<ul class="task-list task-list__performed-activity">
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10060;
-								</button>
+				<div class="task-form__input-wrapper">
+					<label class="task-form__label" for="date">Enter the deadline</label>
+					<input id="date" type="date" class="task-form__input task-form__input--date" value="2019-03-12" />
+				</div>
+				<div class="task-form__button-wrapper">
+					<button class="task-form__button" type="submit">Add to list</button>
+				</div>
+			</form>
 
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10060;
-								</button>
+			<ul class="task-list">
+				<li class="task-list__item">
+					<button class="task-list-item__button task-list-item__button--is-done" type="button">
+						&#10003;
+					</button>
 
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10060;
-								</button>
+					<span class="task-list-item__content">
+						Go to the cinema
+					</span>
 
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10060;
-								</button>
+					<time datetime="2019-04-20" class="task-list-item__deadline">
+						2019-04-20
+					</time>
+					<button class="task-list-item__button task-list-item__button--delete" type="button">
+						&#10060;
+					</button>
+				</li>
+				<li class="task-list__item">
+					<button class="task-list-item__button task-list-item__button--is-done" type="button">
+						&#10003;
+					</button>
 
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10060;
-								</button>
+					<span class="task-list-item__content">
+						Do homework
+					</span>
 
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10060;
-								</button>
+					<time datetime="2019-04-20" class="task-list-item__deadline">
+						2019-04-20
+					</time>
+					<button class="task-list-item__button task-list-item__button--delete" type="button">
+						&#10060;
+					</button>
+				</li>
 
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<button
-									class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
-									type="button"
-								>
-									&#10060;
-								</button>
+				<li class="task-list__item">
+					<button class="task-list-item__button task-list-item__button--is-done" type="button">
+						&#10003;
+					</button>
+					<span class="task-list-item__content">
+						Meet with friends
+					</span>
+					<time datetime="2019-04-20" class="task-list-item__deadline">
+						2019-04-20
+					</time>
+					<button type="submit" class="task-list-item__button task-list-item__button--delete" type="button">
+						&#10060;
+					</button>
+				</li>
+			</ul>
+		</div>
 
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-						</ul>
-					</div>
+		<div class="task-lists__wrapper">
+			<div class="task-list__wrapper">
+				<h1 class="task-list__title">Done</h1>
+				<div class="task-list__performed-activity-wrapper">
+					<ul class="task-list task-list__performed-activity">
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
+								type="button">
+								&#10003;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
+								type="button">
+								&#10003;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
+								type="button">
+								&#10003;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
+								type="button">
+								&#10003;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--is-done task-list-item__button--performed-activity-list"
+								type="button">
+								&#10003;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="task-list__wrapper">
+				<h1 class="task-list__title">Deleted</h1>
+				<div class="task-list__performed-activity-wrapper">
+					<ul class="task-list task-list__performed-activity">
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
+								type="button">
+								&#10060;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
+								type="button">
+								&#10060;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
+								type="button">
+								&#10060;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
+								type="button">
+								&#10060;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
+								type="button">
+								&#10060;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
+								type="button">
+								&#10060;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+						<li class="task-list__item">
+							<button
+								class="task-list-item__button task-list-item__button--delete task-list-item__button--performed-activity-list"
+								type="button">
+								&#10060;
+							</button>
+
+							<span class="task-list-item__content">
+								Go to the cinema
+							</span>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<script type="text/javascript" src="task-list.js"></script>
-	</body>
+	<script type="text/javascript" src="task-list.js"></script>
+	<script type="text/javascript" src="generate-task-list.js"></script>
+</body>
+
 </html>
