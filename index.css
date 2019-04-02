@@ -158,6 +158,19 @@ body {
 	border-radius: 10px;
 }
 
+.task-list-item__icon {
+	background: var(--grey);
+	border: 2px solid var(--grey);
+	font-size: 24px;
+	border-radius: 10px;
+	margin: 0 .5rem;
+}
+
+.task-list-item__icon--done {
+	color: var(--green);
+
+}
+
 .task-list-item__button:hover {
 	cursor: pointer;
 	opacity: 0.5;
@@ -169,7 +182,7 @@ body {
 	color: var(--green);
 }
 
-.task-list-item__button--performed-activity-list:hover {
+.task-list-item__button--performed-activities-list:hover {
 	opacity: 1;
 	cursor: default;
 }
@@ -212,7 +225,7 @@ body {
 	box-shadow: 1.5px 1.5px 1.5px 1.5px var(--soft-grey);
 }
 
-.task-list__performed-activity-wrapper {
+.task-list__performed-activities-wrapper {
 	background: var(--coconut-milk);
 	max-height: 85%;
 	min-height: 85%;
@@ -221,7 +234,7 @@ body {
 	border-radius: 0 0 15px 15px;
 }
 
-.task-list__performed-activity {
+.task-list__performed-activities {
 	margin-top: 0;
 	max-height: 15rem;
 }
