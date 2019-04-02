@@ -22,7 +22,8 @@ const addTask = event => {
 	const taskName = document.querySelector('task-form__input', 'task-form__input--task-content').value;
 	const taskDeadline = document.querySelector('task-form__input', 'task-form__input--date').value;
 
-	let lastElement = tasks.pop();
+	const lastElementIndex = tasks.length() - 1;
+	const lastElement = task[lastElementIndex];
 
 	tasks.push({
 		id: lastElement.id + 1,
