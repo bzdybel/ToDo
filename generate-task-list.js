@@ -1,19 +1,3 @@
-function toCamelCase(text) {
-	return text.replace(/^([A-Z])|[\s-_]+(\w)/g, function (match, p1, p2, offset) {
-		if (p2) return p2.toUpperCase();
-		return p1.toLowerCase();
-	});
-}
-
-function camelCaseToString(str, separator) {
-	separator = typeof separator === 'undefined' ? '_' : separator;
-
-	return str
-		.replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2')
-		.replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + separator + '$2')
-		.toLowerCase();
-}
-
 const addTaskForm = document.querySelector('.task-form__add');
 const taskList = document.querySelector('.task-list');
 const addTask = event => {
@@ -27,7 +11,7 @@ const addTask = event => {
 
 	tasks.push({
 		id: lastElement.id + 1,
-		name: toCamelCase(taskName),
+		name: taskName,
 		deadline: taskDeadline,
 		isDone: false,
 		isDeleted: false
@@ -46,8 +30,8 @@ const addTask = event => {
 	taskContent.classList.add('task-list-item__content');
 	taskDeadlineTime.classList.add('task-list-item__deadline');
 
-	taskContent.innerText(camelCaseToString(tasks.pop().name, " "));
-	taskDeadlineTime.innerText(tasks.pop().deadline);
+	taskContent.innerText(tasks[lastElementIndex].name, " ");
+	taskDeadlineTime.innerText(tasks[lastElementIndex].deadline);
 
 	currentTask.appendChild(buttonIsDone);
 	currentTask.appendChild(taskContent);
