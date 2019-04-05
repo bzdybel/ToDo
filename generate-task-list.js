@@ -1,14 +1,22 @@
-const addTaskForm = document.querySelector('.task-form__add');
+const addTaskForm = document.querySelector('.task-form');
 const taskList = document.querySelector('.task-list');
 const addTask = event => {
 	event.preventDefault();
 
-	const taskName = document.querySelector('task-form__input', 'task-form__input--task-content').value;
-	const taskDeadline = document.querySelector('task-form__input', 'task-form__input--date').value;
+	const taskName = document.querySelector('.task-form__input--task-content').value;
+	const taskDeadline = document.querySelector('.task-form__input--date').value;
 
-	const lastElementIndex = tasks.length() - 1;
-	const lastElement = task[lastElementIndex];
+	let lastElement = null;
+	let lastElementIndex = null;
 
+	console.log(tasks.length);
+	if (tasks.length > 0) {
+		lastElementIndex = tasks.length - 1;
+		lastElement = tasks[lastElementIndex].name;
+	} else {
+		lastElement = tasks[0];
+		lastElementIndex = 0;
+	}
 	tasks.push({
 		id: lastElement.id + 1,
 		name: taskName,
@@ -30,8 +38,11 @@ const addTask = event => {
 	taskContent.classList.add('task-list-item__content');
 	taskDeadlineTime.classList.add('task-list-item__deadline');
 
-	taskContent.innerText(tasks[lastElementIndex].name, " ");
-	taskDeadlineTime.innerText(tasks[lastElementIndex].deadline);
+	taskContent.innerText = tasks[lastElementIndex + 1].name;
+	taskDeadlineTime.innerText = tasks[lastElementIndex + 1].deadline;
+	buttonIsDone.innerHTML = "&#10003;"
+	buttonIsDeleted.innerHTML = "&#10060;"
+
 
 	currentTask.appendChild(buttonIsDone);
 	currentTask.appendChild(taskContent);
