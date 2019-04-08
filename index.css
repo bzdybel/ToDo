@@ -81,7 +81,6 @@ body {
 	font-size: 16px;
 }
 
-
 .task-form__input-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -169,7 +168,6 @@ body {
 
 .task-list-item__icon--done {
 	color: var(--green);
-
 }
 
 .task-list-item__button:hover {
