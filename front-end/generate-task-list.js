@@ -1,25 +1,34 @@
 const addTaskForm = document.querySelector('.task-form');
 const taskList = document.querySelector('.task-list');
-const tasks = [{}]
+const tasks = [];
+const STATUSES = [{
+	NEW: 'NEW'
+},
+{
+	DONE: 'DONE'
+},
+{
+	DELETED: 'DELETED'
+}
+];
 
 const renderTaskList = event => {
+	tasks.forEach(function (task) {
+		const currentTask = document.createElement("li");
+		const buttonIsDone = document.createElement("button");
+		const buttonIsDeleted = document.createElement("button");
+		const taskContent = document.createElement("span");
+		const taskDeadlineTime = document.createElement("time");
 
-	const currentTask = document.createElement("li");
-	const buttonIsDone = document.createElement("button");
-	const buttonIsDeleted = document.createElement("button");
-	const taskContent = document.createElement("span");
-	const taskDeadlineTime = document.createElement("time");
 
+		currentTask.classList.add('task-list__item');
+		buttonIsDone.classList.add('task-list-item__button', 'task-list-item__button--is-done');
+		buttonIsDeleted.classList.add('task-list-item__button', 'task-list-item__button--is-deleted');
+		taskContent.classList.add('task-list-item__content');
+		taskDeadlineTime.classList.add('task-list-item__deadline');
 
-	currentTask.classList.add('task-list__item');
-	buttonIsDone.classList.add('task-list-item__button', 'task-list-item__button--is-done');
-	buttonIsDeleted.classList.add('task-list-item__button', 'task-list-item__button--is-deleted');
-	taskContent.classList.add('task-list-item__content');
-	taskDeadlineTime.classList.add('task-list-item__deadline');
-
-	tasks.forEach(function (node) {
-		taskContent.innerText = node.name;
-		taskDeadlineTime.innerText = node.deadline;
+		taskContent.innerText = task.name;
+		taskDeadlineTime.innerText = task.deadline;
 
 		buttonIsDone.innerHTML = "&#10003;"
 		buttonIsDeleted.innerHTML = "&#10060;"
@@ -31,6 +40,7 @@ const renderTaskList = event => {
 
 		taskList.appendChild(currentTask);
 
+		document.querySelector('.task-form').reset();
 	});
 }
 
@@ -45,10 +55,11 @@ const addTask = event => {
 		id: uuid(),
 		name: taskName,
 		deadline: taskDeadline,
-		status: 'New'
+		status: STATUSES.NEW
 
 	});
 	renderTaskList();
+
 }
 
 addTaskForm.addEventListener('submit', addTask);
