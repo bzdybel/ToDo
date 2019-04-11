@@ -9,6 +9,8 @@ const STATUSES = {
 }
 
 const renderTaskList = event => {
+	taskList.innerHTML = ''
+	
 	tasks.forEach(function(task) {
 		const currentTask = document.createElement('li')
 		const buttonIsDone = document.createElement('button')
