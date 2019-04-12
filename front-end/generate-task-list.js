@@ -10,7 +10,7 @@ const STATUSES = {
 
 const renderTaskList = event => {
 	taskList.innerHTML = ''
-	
+
 	tasks.forEach(function(task) {
 		const currentTask = document.createElement('li')
 		const buttonIsDone = document.createElement('button')
@@ -38,6 +38,13 @@ const renderTaskList = event => {
 		taskList.appendChild(currentTask)
 
 		document.querySelector('.task-form').reset()
+
+		const changeStatus = event => {
+			task.status = STATUSES.DONE
+			addDoneTask()
+			removeFromTaskList(task.id)
+		}
+		buttonIsDone.addEventListener('click', changeStatus)
 	})
 }
 

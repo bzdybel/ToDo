@@ -44,52 +44,8 @@
 				<div class="task-list__wrapper">
 					<h1 class="task-list__title">Done</h1>
 					<div class="task-list__performed-activities-wrapper">
-						<ul class="task-list task-list__performed-activities">
-							<li class="task-list__item">
-								<i class="task-list-item__icon task-list-item__icon--done">
-									&#10003;
-								</i>
+						<ul class="task-list task-list__performed-activities task-list__performed-activities--is-done">
 
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<i class="task-list-item__icon task-list-item__icon--done">
-									&#10003;
-								</i>
-
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<i class="task-list-item__icon task-list-item__icon--done">
-									&#10003;
-								</i>
-
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<i class="task-list-item__icon task-list-item__icon--done">
-									&#10003;
-								</i>
-
-								<span class="task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
-							<li class="task-list__item">
-								<i class="task-list-item__icon task-list-item__icon--done">
-									&#10003;
-								</i>
-
-								<span class=" task-list-item__content">
-									Go to the cinema
-								</span>
-							</li>
 						</ul>
 					</div>
 				</div>
@@ -97,7 +53,9 @@
 				<div class="task-list__wrapper">
 					<h1 class="task-list__title">Deleted</h1>
 					<div class="task-list__performed-activities-wrapper">
-						<ul class="task-list task-list__performed-activities">
+						<ul
+							class="task-list task-list__performed-activities task-list__performed-activities--is-deleted"
+						>
 							<li class="task-list__item">
 								<i class="task-list-item__icon">
 									&#10060;
@@ -169,5 +127,6 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js"></script>
 		<script type="text/javascript" src="generate-task-list.js"></script>
+		<script type="text/javascript" src="generate-done-list.js"></script>
 	</body>
 </html>
