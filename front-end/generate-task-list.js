@@ -43,6 +43,7 @@ const renderTaskList = event => {
 			task.status = STATUSES.DONE
 			addDoneTask()
 			removeFromTaskList(task.id)
+			renderTaskList()
 		}
 		buttonIsDone.addEventListener('click', changeStatus)
 	})
