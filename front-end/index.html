@@ -1,68 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
+    <head>
+        <meta charset="utf-8" />
 
-		<title>ToDo List</title>
-		<meta name="description" content="ToDo application" />
-		<meta name="author" content="Bartlomiej Zdybel" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<link rel="stylesheet" type="text/css" href="./index.css" />
+        <title>ToDo List</title>
+        <meta name="description" content="ToDo application" />
+        <meta name="author" content="Bartlomiej Zdybel" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <link rel="stylesheet" type="text/css" href="./index.css" />
 
-		<link rel="icon" href="icon_code.jpg" />
-	</head>
+        <link rel="icon" href="icon_code.jpg" />
+    </head>
 
-	<body>
-		<div class="container">
-			<div class="task-list__container">
-				<form class="task-form">
-					<h1 class="task-form__title">task list</h1>
+    <body>
+        <div class="container">
+            <div class="task-list__container">
+                <form class="task-form">
+                    <h1 class="task-form__title">task list</h1>
 
-					<div class="task-form__input-wrapper">
-						<label class="task-form__label" for="task">What must you do?</label>
-						<input
-							id="task"
-							class="task-form__input task-form__input--task-content"
-							placeholder="eg. Go to the cinema"
-							required
-						/>
-					</div>
+                    <div class="task-form__input-wrapper">
+                        <label class="task-form__label" for="task"
+                            >What must you do?</label
+                        >
+                        <input
+                            id="task"
+                            class="task-form__input task-form__input--task-content"
+                            placeholder="eg. Go to the cinema"
+                            required
+                        />
+                    </div>
 
-					<div class="task-form__input-wrapper">
-						<label class="task-form__label" for="date">Enter the deadline</label>
-						<input id="date" type="date" class="task-form__input task-form__input--date" required />
-					</div>
-					<div class="task-form__button-wrapper">
-						<button class="task-form__button" type="submit">Add to list</button>
-					</div>
-				</form>
+                    <div class="task-form__input-wrapper">
+                        <label class="task-form__label" for="date"
+                            >Enter the deadline</label
+                        >
+                        <input
+                            id="date"
+                            type="date"
+                            class="task-form__input task-form__input--date"
+                            required
+                        />
+                    </div>
+                    <div class="task-form__button-wrapper">
+                        <button class="task-form__button" type="submit">
+                            Add to list
+                        </button>
+                    </div>
+                </form>
 
-				<ul class="task-list"></ul>
-			</div>
+                <ul class="task-list"></ul>
+            </div>
 
-			<div class="task-lists__wrapper">
-				<div class="task-list__wrapper">
-					<h1 class="task-list__title">Done</h1>
-					<div class="task-list__performed-activities-wrapper">
-						<ul
-							class="task-list task-list__performed-activities task-list__performed-activities--is-done"
-						></ul>
-					</div>
-				</div>
+            <div class="task-lists__wrapper">
+                <div class="task-list__wrapper">
+                    <h1 class="task-list__title">Done</h1>
+                    <div class="task-list__performed-activities-wrapper">
+                        <ul
+                            class="task-list task-list__performed-activities task-list__performed-activities--is-done"
+                        ></ul>
+                    </div>
+                </div>
 
-				<div class="task-list__wrapper">
-					<h1 class="task-list__title">Deleted</h1>
-					<div class="task-list__performed-activities-wrapper">
-						<ul
-							class="task-list task-list__performed-activities task-list__performed-activities--is-deleted"
-						></ul>
-					</div>
-				</div>
-			</div>
-		</div>
+                <div class="task-list__wrapper">
+                    <h1 class="task-list__title">Deleted</h1>
+                    <div class="task-list__performed-activities-wrapper">
+                        <ul
+                            class="task-list task-list__performed-activities task-list__performed-activities--is-deleted"
+                        ></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script type="text/javascript" src="generate-task-lists.js"></script>
-	</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="text/javascript" src="moment.js"></script>
+        <script type="text/javascript" src="generate-task-lists.js"></script>
+    </body>
 </html>

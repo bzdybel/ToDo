@@ -16,10 +16,7 @@ app.use(express.static('front-end'));
 // mongodb url structure: <protocol name>://<host>:<port>/<database name>
 const url = 'mongodb://localhost:27017/todo';
 
-const db = mongoose.connect(
-    url,
-    { useNewUrlParser: true }
-);
+const db = mongoose.connect(url, { useNewUrlParser: true });
 
 // Following schema is also correct, but makes all the fields nullable:
 // const taskSchema = new mongoose.Schema({
@@ -63,12 +60,16 @@ app.post('/task', (req, res) => {
         deadline: req.body.deadline,
     });
 
+    console.log('dupa');
+
     return (
         task
             .save()
             // if validation passes, newly inserted task will be available
             // in `createdTask` variable
             .then(createdTask => {
+                console.log('cipa');
+
                 // HTTP status code 201 means Created
                 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
                 // we also need to return the task we created
@@ -94,7 +95,7 @@ app.get('/tasks', (req, res) =>
     // HTTP status code 200 generally means OK - an indicator of success
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
     Task.find()
-        .then(tasks => res.status(200).send(tasks))
+        .then(tasks => res.status(200).send(tasks), console.log('gcbw'))
         .catch(error => {
             console.log(error);
             res.send(error.errors);
