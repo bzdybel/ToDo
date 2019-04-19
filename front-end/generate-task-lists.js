@@ -2,7 +2,12 @@ const addTaskForm = document.querySelector('.task-form')
 const taskList = document.querySelector('.task-list')
 
 const tasks = []
-
+axios.get('/tasks')
+  .then(function (response) {
+    console.log(response.Content);
+    console.log(response.Deadline);
+    console.log(response.status);
+  });
 const STATUSES = {
 	NEW: 'NEW',
 	DELETED: 'DELETED',
@@ -71,6 +76,19 @@ const addTask = event => {
 		status: STATUSES.NEW,
 	})
 	renderTaskList()
+
+	return axios
+		.post('/addname', {
+			Content: taskName,
+			Deadline: taskDeadline,
+			status: STATUSES.NEW,
+		})
+		.then(function(response) {
+			console.log(response)
+		})
+		.catch(function(error) {
+			console.log(error)
+		})
 }
 
 addTaskForm.addEventListener('submit', addTask)
