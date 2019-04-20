@@ -60,7 +60,6 @@ app.post('/task', (req, res) => {
         deadline: req.body.deadline,
     });
 
-    console.log('dupa');
 
     return (
         task
@@ -68,7 +67,6 @@ app.post('/task', (req, res) => {
             // if validation passes, newly inserted task will be available
             // in `createdTask` variable
             .then(createdTask => {
-                console.log('cipa');
 
                 // HTTP status code 201 means Created
                 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
@@ -95,7 +93,7 @@ app.get('/tasks', (req, res) =>
     // HTTP status code 200 generally means OK - an indicator of success
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
     Task.find()
-        .then(tasks => res.status(200).send(tasks), console.log('gcbw'))
+        .then(tasks => res.status(200).send(tasks))
         .catch(error => {
             console.log(error);
             res.send(error.errors);

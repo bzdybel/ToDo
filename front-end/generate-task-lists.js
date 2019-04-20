@@ -7,12 +7,10 @@ axios
     .get('/tasks')
     .then(response => {
         // either empty array or array of tasks
-        // 1. Add all tasks from response to the proper array
         response.data.forEach(task => {
-            task.deadline = moment(task.deadline).format('YYYY.MM.DD');
+            task.deadline = task.deadline;
             tasks.push(task);
         });
-        // 2. Render
         renderTaskList();
         console.log('GET /tasks response', response.data);
     })
@@ -49,7 +47,9 @@ const renderTaskList = event => {
             taskDeadlineTime.classList.add('task-list-item__deadline');
 
             taskContent.innerText = task.content;
-            taskDeadlineTime.innerText = task.deadline;
+            taskDeadlineTime.innerText = moment(task.deadline).format(
+                'YYYY.MM.DD'
+            );
 
             buttonIsDone.innerHTML = '&#10003;';
             buttonIsDeleted.innerHTML = '&#10060;';
@@ -88,24 +88,19 @@ const addTask = event => {
     const taskDeadline = document.querySelector('.task-form__input--date')
         .value;
 
-    console.log(taskDeadline);
-
-    console.log(moment(taskDeadline).format('YYYY.MM.DD'));
     return axios
         .post('/task', {
             content: taskContent,
-            deadline: moment(taskDeadline).format('YYYY.MM.DD'),
+            deadline: taskDeadline,
             status: STATUSES.NEW,
         })
         .then(response => {
             // newly created task object
-            // 1. Append task to the proper array
             tasks.push({
                 content: taskContent,
-                deadline: moment(taskDeadline).format('YYYY.MM.DD'),
+                deadline: taskDeadline,
                 status: STATUSES.NEW,
             });
-            // 2. Render
             renderTaskList();
             console.log('POST /task response', response.data);
         });
