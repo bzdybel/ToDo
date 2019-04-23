@@ -7,7 +7,7 @@ axios
     .get('/tasks')
     .then(response => {
         // either empty array or array of tasks
-        tasks = Array.from(response.data);
+        tasks = response.data;
         renderTaskList();
         console.log('GET /tasks response', response.data);
     })
@@ -45,7 +45,7 @@ const renderTaskList = event => {
 
             taskContent.innerText = task.content;
             taskDeadlineTime.innerText = moment(task.deadline).format(
-                'YYYY.MM.DD'
+                'DD-MM-YYYY'
             );
 
             buttonIsDone.innerHTML = '&#10003;';
@@ -89,7 +89,6 @@ const addTask = event => {
         .post('/task', {
             content: taskContent,
             deadline: taskDeadline,
-            status: STATUSES.NEW,
         })
         .then(response => {
             // newly created task object
