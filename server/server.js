@@ -60,14 +60,12 @@ app.post('/task', (req, res) => {
         deadline: req.body.deadline,
     });
 
-
     return (
         task
             .save()
             // if validation passes, newly inserted task will be available
             // in `createdTask` variable
             .then(createdTask => {
-
                 // HTTP status code 201 means Created
                 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
                 // we also need to return the task we created
@@ -100,4 +98,50 @@ app.get('/tasks', (req, res) =>
         })
 );
 
+app.post('/taskDeleted', (req, res) => {
+    Task.findById(req.body._id, (err, task) => {
+        if (err) return res.status(500).send(err);
+        task.status = req.body.status;
+        task.save()
+            .then(updatedTask => {
+                res.status(201).send(updatedTask);
+            })
+            .catch(error => {
+                console.log(error);
+                res.status(400).send(error.errors);
+            });
+    });
+});
+
+app.get('/tasksDeleted', (req, res) =>
+    Task.find()
+        .then(tasks => res.status(200).send(tasks))
+        .catch(error => {
+            console.log(error);
+            res.send(error.errors);
+        })
+);
+
+app.post('/taskDone', (req, res) => {
+    Task.findById(req.body._id, (err, task) => {
+        if (err) return res.status(500).send(err);
+        task.status = req.body.status;
+        task.save()
+            .then(updatedTask => {
+                res.status(200).send(updatedTask);
+            })
+            .catch(error => {
+                console.log(error);
+                res.status(400).send(error.errors);
+            });
+    });
+});
+app.get('/tasksDone', (req, res) => {
+    Task.find()
+        .then(tasks => res.status(200).send(tasks))
+        .catch(error => {
+            console.log(error);
+            res.send(error.errors);
+        });
+});
 app.listen(PORT, () => console.log(`Server is listening on ${PORT}...`));

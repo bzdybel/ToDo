@@ -13,6 +13,26 @@ axios
     })
     .catch(error => console.log(error));
 
+axios
+    .get('/tasksDeleted')
+    .then(response => {
+        tasks = response.data;
+        renderTaskList();
+        renderDeletedList();
+        console.log('GET /tasksDeleted response', response.data);
+    })
+    .catch(error => console.log(error));
+
+axios
+    .get('/tasksDone')
+    .then(response => {
+        tasks = response.data;
+        renderTaskList();
+        renderDoneList();
+        console.log('GET /tasksDone response', response.data);
+    })
+    .catch(error => console.log(error));
+
 const STATUSES = {
     NEW: 'NEW',
     DELETED: 'DELETED',
@@ -62,13 +82,39 @@ const renderTaskList = event => {
 
             const markTaskAsDone = event => {
                 task.status = STATUSES.DONE;
-                renderDoneList();
-                renderTaskList();
+                return axios
+                    .post('/taskDone', {
+                        _id: task._id,
+                        status: task.status,
+                    })
+                    .then(response => {
+                        tasks.filter(task => {
+                            task._id === response.data._id
+                                ? (task.status = STATUSES.DONE)
+                                : '';
+                        });
+                        renderDoneList();
+                        renderTaskList();
+                    });
             };
             const markTaskAsDelete = event => {
                 task.status = STATUSES.DELETED;
-                renderDeletedList();
-                renderTaskList();
+
+                return axios
+                    .post('/taskDeleted', {
+                        _id: task._id,
+                        status: task.status,
+                    })
+                    .then(response => {
+                        tasks.filter(task => {
+                            task._id === response.data._id
+                                ? (task.status = STATUSES.DELETED)
+                                : '';
+                        });
+
+                        renderDeletedList();
+                        renderTaskList();
+                    });
             };
 
             buttonIsDone.addEventListener('click', markTaskAsDone);
