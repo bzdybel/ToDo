@@ -98,31 +98,7 @@ app.get('/tasks', (req, res) =>
         })
 );
 
-app.post('/taskDeleted', (req, res) => {
-    Task.findById(req.body._id, (err, task) => {
-        if (err) return res.status(500).send(err);
-        task.status = req.body.status;
-        task.save()
-            .then(updatedTask => {
-                res.status(201).send(updatedTask);
-            })
-            .catch(error => {
-                console.log(error);
-                res.status(400).send(error.errors);
-            });
-    });
-});
-
-app.get('/tasksDeleted', (req, res) =>
-    Task.find()
-        .then(tasks => res.status(200).send(tasks))
-        .catch(error => {
-            console.log(error);
-            res.send(error.errors);
-        })
-);
-
-app.post('/taskDone', (req, res) => {
+app.post('/taskUpdated', (req, res) => {
     Task.findById(req.body._id, (err, task) => {
         if (err) return res.status(500).send(err);
         task.status = req.body.status;
@@ -136,12 +112,5 @@ app.post('/taskDone', (req, res) => {
             });
     });
 });
-app.get('/tasksDone', (req, res) => {
-    Task.find()
-        .then(tasks => res.status(200).send(tasks))
-        .catch(error => {
-            console.log(error);
-            res.send(error.errors);
-        });
-});
+
 app.listen(PORT, () => console.log(`Server is listening on ${PORT}...`));

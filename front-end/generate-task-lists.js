@@ -9,27 +9,9 @@ axios
         // either empty array or array of tasks
         tasks = response.data;
         renderTaskList();
-        console.log('GET /tasks response', response.data);
-    })
-    .catch(error => console.log(error));
-
-axios
-    .get('/tasksDeleted')
-    .then(response => {
-        tasks = response.data;
-        renderTaskList();
-        renderDeletedList();
-        console.log('GET /tasksDeleted response', response.data);
-    })
-    .catch(error => console.log(error));
-
-axios
-    .get('/tasksDone')
-    .then(response => {
-        tasks = response.data;
-        renderTaskList();
         renderDoneList();
-        console.log('GET /tasksDone response', response.data);
+        renderDeletedList();
+        console.log('GET /tasks response', response.data);
     })
     .catch(error => console.log(error));
 
@@ -83,7 +65,7 @@ const renderTaskList = event => {
             const markTaskAsDone = event => {
                 task.status = STATUSES.DONE;
                 return axios
-                    .post('/taskDone', {
+                    .post('/taskUpdated', {
                         _id: task._id,
                         status: task.status,
                     })
@@ -101,7 +83,7 @@ const renderTaskList = event => {
                 task.status = STATUSES.DELETED;
 
                 return axios
-                    .post('/taskDeleted', {
+                    .post('/taskUpdated', {
                         _id: task._id,
                         status: task.status,
                     })
