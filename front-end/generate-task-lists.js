@@ -9,6 +9,8 @@ axios
         // either empty array or array of tasks
         tasks = response.data;
         renderTaskList();
+        renderDoneList();
+        renderDeletedList();
         console.log('GET /tasks response', response.data);
     })
     .catch(error => console.log(error));
@@ -61,14 +63,37 @@ const renderTaskList = event => {
             document.querySelector('.task-form').reset();
 
             const markTaskAsDone = event => {
-                task.status = STATUSES.DONE;
-                renderDoneList();
-                renderTaskList();
+                return axios
+                    .post('/task/update-status', {
+                        _id: task._id,
+                        status: STATUSES.DONE,
+                    })
+                    .then(response => {
+                        tasks.forEach(task => {
+                            if (task._id === response.data._id) {
+                                task.status = STATUSES.DONE;
+                            }
+                        });
+                        renderDoneList();
+                        renderTaskList();
+                    });
             };
             const markTaskAsDelete = event => {
-                task.status = STATUSES.DELETED;
-                renderDeletedList();
-                renderTaskList();
+                return axios
+                    .post('/task/update-status', {
+                        _id: task._id,
+                        status: STATUSES.DELETED,
+                    })
+                    .then(response => {
+                        tasks.forEach(task => {
+                            if (task._id === response.data._id) {
+                                task.status = STATUSES.DELETED;
+                            }
+                        });
+
+                        renderDeletedList();
+                        renderTaskList();
+                    });
             };
 
             buttonIsDone.addEventListener('click', markTaskAsDone);

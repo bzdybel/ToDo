@@ -60,14 +60,12 @@ app.post('/task', (req, res) => {
         deadline: req.body.deadline,
     });
 
-
     return (
         task
             .save()
             // if validation passes, newly inserted task will be available
             // in `createdTask` variable
             .then(createdTask => {
-
                 // HTTP status code 201 means Created
                 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
                 // we also need to return the task we created
@@ -97,6 +95,18 @@ app.get('/tasks', (req, res) =>
         .catch(error => {
             console.log(error);
             res.send(error.errors);
+        })
+);
+
+app.post('/task/update-status', (req, res) =>
+    Task.findOneAndUpdate(
+        { _id: req.body._id },
+        { $set: { status: req.body.status } }
+    )
+        .then(task => res.status(200).send(task))
+        .catch(error => {
+            console.log(error);
+            res.status(400).send(error.errors);
         })
 );
 
