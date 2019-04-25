@@ -101,12 +101,14 @@ app.get('/tasks', (req, res) =>
 app.post('/task/updated', (req, res) => {
     Task.findOneAndUpdate(
         { _id: req.body._id },
-        { $set: { status: req.body.status } },
-        (err, task) => {
-            if (err) res.status(400).send(err.errors);
+        { $set: { status: req.body.status } }
+    )
+        .then(task => {
             res.status(200).send(task);
-        }
-    );
+        })
+        .catch(error => {
+            res.status(400).send(error.errors);
+        });
 });
 
 app.listen(PORT, () => console.log(`Server is listening on ${PORT}...`));

@@ -70,9 +70,9 @@ const renderTaskList = event => {
                     })
                     .then(response => {
                         tasks.forEach(task => {
-                            task._id === response.data._id
-                                ? (task.status = STATUSES.DONE)
-                                : '';
+                            if (task._id === response.data._id) {
+                                task.status = STATUSES.DONE;
+                            }
                         });
                         renderDoneList();
                         renderTaskList();
