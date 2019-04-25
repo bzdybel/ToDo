@@ -64,7 +64,7 @@ const renderTaskList = event => {
 
             const markTaskAsDone = event => {
                 return axios
-                    .post('/task/updated', {
+                    .post('/task/update-status', {
                         _id: task._id,
                         status: STATUSES.DONE,
                     })
@@ -80,7 +80,7 @@ const renderTaskList = event => {
             };
             const markTaskAsDelete = event => {
                 return axios
-                    .post('/task/updated', {
+                    .post('/task/update-status', {
                         _id: task._id,
                         status: STATUSES.DELETED,
                     })

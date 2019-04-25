@@ -98,7 +98,7 @@ app.get('/tasks', (req, res) =>
         })
 );
 
-app.post('/task/updated', (req, res) =>
+app.post('/task/update-status', (req, res) =>
     Task.findOneAndUpdate(
         { _id: req.body._id },
         { $set: { status: req.body.status } }
