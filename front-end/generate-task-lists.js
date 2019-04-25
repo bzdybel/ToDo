@@ -63,14 +63,13 @@ const renderTaskList = event => {
             document.querySelector('.task-form').reset();
 
             const markTaskAsDone = event => {
-                task.status = STATUSES.DONE;
                 return axios
-                    .post('/taskUpdated', {
+                    .post('/task/updated', {
                         _id: task._id,
-                        status: task.status,
+                        status: STATUSES.DONE,
                     })
                     .then(response => {
-                        tasks.filter(task => {
+                        tasks.forEach(task => {
                             task._id === response.data._id
                                 ? (task.status = STATUSES.DONE)
                                 : '';
@@ -80,15 +79,13 @@ const renderTaskList = event => {
                     });
             };
             const markTaskAsDelete = event => {
-                task.status = STATUSES.DELETED;
-
                 return axios
-                    .post('/taskUpdated', {
+                    .post('/task/updated', {
                         _id: task._id,
-                        status: task.status,
+                        status: STATUSES.DELETED,
                     })
                     .then(response => {
-                        tasks.filter(task => {
+                        tasks.forEach(task => {
                             task._id === response.data._id
                                 ? (task.status = STATUSES.DELETED)
                                 : '';

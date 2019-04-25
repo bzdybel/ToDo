@@ -98,19 +98,15 @@ app.get('/tasks', (req, res) =>
         })
 );
 
-app.post('/taskUpdated', (req, res) => {
-    Task.findById(req.body._id, (err, task) => {
-        if (err) return res.status(500).send(err);
-        task.status = req.body.status;
-        task.save()
-            .then(updatedTask => {
-                res.status(200).send(updatedTask);
-            })
-            .catch(error => {
-                console.log(error);
-                res.status(400).send(error.errors);
-            });
-    });
+app.post('/task/updated', (req, res) => {
+    Task.findOneAndUpdate(
+        { _id: req.body._id },
+        { $set: { status: req.body.status } },
+        (err, task) => {
+            if (err) res.status(400).send(err.errors);
+            res.status(200).send(task);
+        }
+    );
 });
 
 app.listen(PORT, () => console.log(`Server is listening on ${PORT}...`));
