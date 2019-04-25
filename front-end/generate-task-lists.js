@@ -86,9 +86,9 @@ const renderTaskList = event => {
                     })
                     .then(response => {
                         tasks.forEach(task => {
-                            task._id === response.data._id
-                                ? (task.status = STATUSES.DELETED)
-                                : '';
+                            if (task._id === response.data._id) {
+                                task.status = STATUSES.DELETED;
+                            }
                         });
 
                         renderDeletedList();

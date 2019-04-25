@@ -98,17 +98,16 @@ app.get('/tasks', (req, res) =>
         })
 );
 
-app.post('/task/updated', (req, res) => {
+app.post('/task/updated', (req, res) =>
     Task.findOneAndUpdate(
         { _id: req.body._id },
         { $set: { status: req.body.status } }
     )
-        .then(task => {
-            res.status(200).send(task);
-        })
+        .then(task => res.status(200).send(task))
         .catch(error => {
+            console.log(error);
             res.status(400).send(error.errors);
-        });
-});
+        })
+);
 
 app.listen(PORT, () => console.log(`Server is listening on ${PORT}...`));
